@@ -48,6 +48,10 @@ header{
     }
 }
 
+#bg_chat{
+    background-image: url(../img/mine.jpg);
+}
+
 /* #endregion main */
 
 
