@@ -30,72 +30,84 @@
 
     </head>
 
-    <body class="debug">
+    <body class>
         <div id="app" class="background p-5">
 
             <div class="container">
 
                 <header>
                     <div class="row">
-                        <div id="main_user"
-                            class="col-4 d-flex justify-content-between">
-                            <div class="d-flex gap-2 align-items-center">
+                        <div class="col-4">
+                            <div id="main_user"
+                                class="d-flex justify-content-between p-2 pe-3">
+                                <div class="d-flex gap-2 align-items-center">
 
-                                <div class="user_pic">
-                                    <img src="./assets/img/avatar_io.jpg" alt>
-                                </div>
-                                <!-- /.user_pic -->
+                                    <div class="user_pic">
+                                        <img src="./assets/img/avatar_io.jpg"
+                                            alt>
+                                    </div>
+                                    <!-- /.user_pic -->
 
-                                <div class="user_name">
-                                    Sofia
+                                    <div class="user_name">
+                                        Sofia
+                                    </div>
                                 </div>
-                            </div>
-                            <div
-                                class="settings d-flex align-items-center gap-3">
-                                <i class="fa-solid fa-circle-notch fa-lg"></i>
-                                <i class="fa-solid fa-message fa-lg"></i>
-                                <i class="fa-solid fa-ellipsis-vertical fa-lg"></i>
+                                <div
+                                    class="settings d-flex align-items-center gap-3">
+                                    <i class="fa-solid fa-circle-notch fa-lg"></i>
+                                    <i class="fa-solid fa-message fa-lg"></i>
+                                    <i
+                                        class="fa-solid fa-ellipsis-vertical fa-lg"></i>
+                                </div>
                             </div>
                         </div>
                         <!-- /.col-4 #main_user -->
-                        <div class="col-8 d-flex justify-content-between">
-                            <div class="d-flex gap-2 align-items-center">
 
-                                <div class="user_pic">
-                                    <img src="./assets/img/avatar_1.jpg" alt>
-                                </div>
-                                <!-- /.user_pic -->
-                                <div>
-                                    <div class="user_name">
-                                        Michele
+                        <div class="col-8">
+                            <div id="open_chat"
+                                class="d-flex justify-content-between p-2 pe-3">
+                                <div class="d-flex gap-2 align-items-center">
+
+                                    <div class="user_pic">
+                                        <img src="./assets/img/avatar_1.jpg" alt>
                                     </div>
-                                    <div class="user_status">
-                                        Ultimo accesso oggi alle **:**
+                                    <!-- /.user_pic -->
+                                    <div>
+                                        <div class="user_name">
+                                            Michele
+                                        </div>
+                                        <div class="user_status">
+                                            Ultimo accesso oggi alle **:**
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div
-                                class="settings d-flex align-items-center gap-3">
-                                <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-                                <i class="fa-solid fa-paperclip fa-lg"></i>
-                                <i class="fa-solid fa-ellipsis-vertical fa-lg"></i>
+                                <div
+                                    class="settings d-flex align-items-center gap-3">
+                                    <i
+                                        class="fa-solid fa-magnifying-glass fa-lg"></i>
+                                    <i class="fa-solid fa-paperclip fa-lg"></i>
+                                    <i
+                                        class="fa-solid fa-ellipsis-vertical fa-lg"></i>
+                                </div>
                             </div>
                         </div>
                         <!-- /.col-8 -->
                     </div>
                     <!-- /.row -->
                 </header>
+                <!-- -------------/HEADER------------- -->
 
                 <main>
                     <div class="row">
                         <div class="col-4">
+
                             <div id="notifications"
-                                class="d-flex gap-2 align-items-center">
+                                class="d-flex gap-2 align-items-center p-2 ps-3">
                                 <div id="bell"
                                     class="rounded-circle d-flex justify-content-center align-items-center">
                                     <i class="fa-solid fa-bell-slash fa-lg"></i>
                                 </div>
-                                <!-- /BELL ICON CIRCLE -->
+                                <!-- /bell icon circle -->
                                 <div>
                                     <div>
                                         Ricevi notifiche di nuovi messaggi
@@ -108,33 +120,34 @@
                             <!-- /#notifications -->
 
                             <form id="input_search"
-                                class="d-flex input-group bg-light"
+                                class="d-flex input-group p-2 ps-3"
                                 role="search">
 
                                 <button
-                                    class="btn bg-white border"
+                                    class="btn bg-white"
                                     id="searchbar">
                                     <i
                                         class="fa-solid fa-magnifying-glass fa-md"></i>
                                 </button>
 
                                 <input type="search"
-                                    class="form-control border-0 shadow-none"
+                                    class="form-control shadow-none"
                                     placeholder="Cerca o inizia una nuova chat"
                                     aria-label="Search"
                                     aria-describedby="searchbar">
 
                             </form>
-                            <!-- /INPUT TO SEARCH -->
+                            <!-- /input_search -->
 
-                            <div
-                                class="preview_chat d-flex gap-2 align-items-start justify-content-between" v-for="(contact, i) in contacts" :key="i">
+                            <div id="preview_chat"
+                                class="d-flex gap-2 align-items-start justify-content-between bg-white p-2 ps-3"
+                                v-for="contact in contacts">
 
                                 <div
                                     class="info_chat d-flex justify-content-between gap-2">
 
                                     <div class="user_pic">
-                                        <img src="./assets/img/avatar_1.jpg" alt>
+                                        <img :src="contact.avatar" alt="avatar">
                                     </div>
                                     <!-- /.user_pic -->
 
@@ -148,9 +161,7 @@
                                     </div>
                                 </div>
                                 <div class="time">
-
                                     12:00
-
                                 </div>
                                 <!-- /.info_chat -->
                             </div>
@@ -165,25 +176,25 @@
                                 <div class="row justify-content-end">
 
                                     <div class="col-4">
-                                        
+
                                         <div class="message">
                                             CIAO!
                                         </div>
-                                        
+
                                     </div>
                                     <!-- /.col-4 -->
 
                                 </div>
                                 <!-- /.row -->
-                                
+
                                 <div class="row">
 
                                     <div class="col-4">
-                                        
+
                                         <div class="message">
                                             CIAO!
                                         </div>
-                                        
+
                                     </div>
                                     <!-- /.col-4 -->
 

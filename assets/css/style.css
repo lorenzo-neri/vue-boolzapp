@@ -4,24 +4,44 @@
     background: linear-gradient(var(--bz-header-bg) 145px, var(--bz-bg) 5rem);
 }
 
+[class^="col"] {
+    padding: 0;
+}
+
+.user_name {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.user_status {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--bz-icon);
+}
+
 /* #region header */
 
 /* #main_user */
-#main_user{
+#main_user {
     border-right: 1px solid var(--bz-icon);
 }
 
 .user_pic {
-    
+
     & img {
         width: 3rem;
         border-radius: 50%;
     }
 }
 
-header{
+header {
 
-    & i{
+    & #main_user,
+    #open_chat {
+        background-color: var(--bz-light);
+    }
+
+    & i {
         color: var(--bz-icon);
     }
 }
@@ -31,24 +51,39 @@ header{
 
 /* #region main */
 
-#bell{
+#notifications {
+    background-color: var(--bz-notice);
+}
+
+#bell {
     width: 3rem;
     aspect-ratio: 1/1;
     background-color: var(--bz-white);
 }
 
-#input_search{
+#input_search {
 
-    & button{
+    background-color: var(--bz-search-bg);
+
+    & button {
         width: 5rem;
     }
+
     & button,
-    input{
+    input {
         border-radius: 0;
+        border: 1px solid var(--bz-light);
     }
 }
 
-#bg_chat{
+.time {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--bz-icon);
+}
+
+
+#bg_chat {
     background-image: url(../img/mine.jpg);
 }
 
@@ -80,12 +115,14 @@ header{
 :root {
     --bz-principal: #DBDBD2;
     --bz-success: #D5F9BA;
-    --bz-light: #E9EBEB;
+    --bz-light: #ebebea;
     --bz-white: #FFFFFF;
     --bz-focus: #8EDAFC;
     --bz-bg: #dadad5;
     --bz-header-bg: #009688;
     --bz-icon: #b0b0b1;
+    --bz-notice: #8fdbfc;
+    --bz-search-bg: #fbfafb;
 }
 
 /* #endregion colors */
