@@ -4,9 +4,13 @@
     background: linear-gradient(var(--bz-header-bg) 145px, var(--bz-bg) 5rem);
 }
 
+/* #region debug */
 
+.debug .container{
+    background-color: lightcoral;
+}
 
-
+/* #endregion debug */
 
 /* #region colors */
 
