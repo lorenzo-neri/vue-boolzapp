@@ -28,6 +28,29 @@ header{
 
 /* #endregion header */
 
+
+/* #region main */
+
+#bell{
+    width: 3rem;
+    aspect-ratio: 1/1;
+    background-color: var(--bz-white);
+}
+
+#input_search{
+
+    & button{
+        width: 5rem;
+    }
+    & button,
+    input{
+        border-radius: 0;
+    }
+}
+
+/* #endregion main */
+
+
 /* #region debug */
 
 .debug {
