@@ -1,14 +1,50 @@
-.background{
+.background {
     width: 100vw;
     height: 100vh;
     background: linear-gradient(var(--bz-header-bg) 145px, var(--bz-bg) 5rem);
 }
 
+/* #region header */
+
+/* #main_user */
+#main_user{
+    border-right: 1px solid var(--bz-icon);
+}
+
+.user_pic {
+    
+    & img {
+        width: 3rem;
+        border-radius: 50%;
+    }
+}
+
+header{
+
+    & i{
+        color: var(--bz-icon);
+    }
+}
+
+/* #endregion header */
+
 /* #region debug */
 
-.debug .container{
-    background-color: lightcoral;
+.debug {
+
+    & .container {
+        background-color: lightcoral;
+    }
+
+    & .row {
+        background-color: rgb(95, 201, 237);
+    }
+
+    & [class^="col"] {
+        background-color: rgba(255, 255, 0, 0.424);
+    }
 }
+
 
 /* #endregion debug */
 
@@ -22,6 +58,7 @@
     --bz-focus: #8EDAFC;
     --bz-bg: #dadad5;
     --bz-header-bg: #009688;
+    --bz-icon: #b0b0b1;
 }
 
 /* #endregion colors */
