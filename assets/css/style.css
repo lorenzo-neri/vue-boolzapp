@@ -1,0 +1,31 @@
+.background{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(var(--bz-header-bg) 145px, var(--bz-bg) 5rem);
+}
+
+
+
+
+
+/* #region colors */
+
+:root {
+    --bz-principal: #DBDBD2;
+    --bz-success: #D5F9BA;
+    --bz-light: #E9EBEB;
+    --bz-white: #FFFFFF;
+    --bz-focus: #8EDAFC;
+    --bz-bg: #dadad5;
+    --bz-header-bg: #009688;
+}
+
+/* #endregion colors */
+
+/* #region font */
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* #endregion font */
