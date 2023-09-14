@@ -23,7 +23,7 @@
 
 /* #main_user */
 #main_user {
-    border-right: 1px solid var(--bz-icon);
+    border-right: 1px solid var(--bz-row);
 }
 
 .user_pic {
@@ -121,6 +121,7 @@ header {
     --bz-bg: #dadad5;
     --bz-header-bg: #009688;
     --bz-icon: #b0b0b1;
+    --bz-row: #c9c9c9;
     --bz-notice: #8fdbfc;
     --bz-search-bg: #fbfafb;
 }
