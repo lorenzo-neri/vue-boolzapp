@@ -1,11 +1,21 @@
+/* body {
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, var(--bz-header-bg) 0, var(--bz-header-bg) 145px, var(--bz-bg) 145px, var(--bz-bg) 100%);
+    height: 100vh;
+    padding: 5rem;
+} */
+
 body {
     overflow: hidden;
+    background: linear-gradient(to bottom, var(--bz-header-bg) 145px, var(--bz-bg) 5rem);
 }
 
-.background {
-    width: 100vw;
+#app {
     height: 100vh;
-    background: linear-gradient(var(--bz-header-bg) 145px, var(--bz-bg) 5rem);
+}
+
+.h_container {
+    margin: 3rem auto;
 }
 
 [class^="col"] {
@@ -85,7 +95,6 @@ header {
 }
 
 .scroll {
-    height: 60vh;
     overflow-y: scroll;
 }
 
