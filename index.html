@@ -195,7 +195,7 @@
                                 <!-- LA CLASSE MY_MESSAGE STA ALL'INTERNO DELLA COL-4 CON CLASSE FLEX-ROW-REVERSE CHE STA ALL'INTERNO DELLA ROW CON CLASSE JUSTIFY-CONTENT-END -->
 
                                 <!-- /.row -->
-                                <div class="row mb-2 justify-content-end"
+                                <!-- <div class="row mb-2 justify-content-end"
                                     v-for="(message, index) in contacts[activeContact].messages"
                                     :key="index">
 
@@ -208,28 +208,45 @@
                                             </div>
                                         </div>
 
-                                    </div>
-                                    <!-- /.col-4 -->
+                                    </div> -->
+                                <!-- /.col-4 -->
 
-                                </div>
+                                <!-- </div> -->
                                 <!-- /.row -->
 
-                                <div class="row mb-2">
+                                <div
+                                    v-for="(message, index) in contacts[activeContact].messages">
 
-                                    <div class="col-4">
+                                    <div class="row mb-2 justify-content-end"
+                                        :key="index"
+                                        v-if="message.status === 'sent'">
 
-                                        <div class="message">
-                                            CIAO!
-                                            <div class="time_message">
-                                                12:00
+                                        <div class="col-4">
+                                            <div class="message my_message">
+                                                {{ message.message }}
+                                                <div class="time_message">
+                                                    12:00<!-- {{ message.date }} -->
+                                                </div>
                                             </div>
                                         </div>
-
                                     </div>
-                                    <!-- /.col-4 -->
+                                    <!-- /.row -->
+
+                                    <div class="row mb-2"
+                                        v-else>
+
+                                        <div class="col-4" v-else>
+                                            <div class="message">
+                                                {{ message.message }}
+                                                <div class="time_message">
+                                                    12:00<!-- {{ message.date }} -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
 
                                 </div>
-                                <!-- /.row -->
 
                             </div>
                             <!-- /.container -->
