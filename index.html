@@ -76,15 +76,15 @@
                                 <div class="d-flex gap-2 align-items-center">
 
                                     <div class="user_pic">
-                                        <img src="./assets/img/avatar_1.jpg" alt>
+                                        <img :src="contacts[activeContact].avatar" alt>
                                     </div>
                                     <!-- /.user_pic -->
                                     <div>
                                         <div class="user_name">
-                                            Michele
+                                            {{contacts[activeContact].name}}
                                         </div>
                                         <div class="user_status">
-                                            Ultimo accesso oggi alle **:**
+                                            Ultimo accesso oggi alle 12:00
                                         </div>
                                     </div>
                                 </div>

@@ -183,8 +183,8 @@ createApp({
     },
     methods: {
         selectContact(index) {
-            console.log(this.activeContact);
             this.activeContact = index;
+            console.log(this.activeContact);
         }
     }
 }).mount('#app')
