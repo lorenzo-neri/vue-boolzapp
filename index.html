@@ -153,10 +153,11 @@
 
                                     <div>
                                         <div class="user_name">
-                                            Michele
+                                            {{contact.name}}
                                         </div>
                                         <div class="user_status">
-                                            Ultimo messaggio inviato
+                                            {{contact.messages[contact.messages.length -
+                                                1].message}}
                                         </div>
                                     </div>
                                 </div>
@@ -165,7 +166,7 @@
                                 </div>
                                 <!-- /.info_chat -->
                             </div>
-                            <!-- /.chat -->
+                            <!-- /#preview_chat -->
 
                         </div>
                         <!-- /.col-4 -->
