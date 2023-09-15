@@ -27,8 +27,9 @@ createApp({
     data() {
         return {
             searchText: '', //testo inserito nell'input di ricerca
-            filteredContacts: [], //contatti filtrati
+            filteredContacts: [],
             activeContact: 0,
+            activeFilteredContact: 0, //indice del contatto attivo all'interno di filteredContacts
             contacts: [
                 {
                     name: 'Michele',
@@ -196,16 +197,23 @@ createApp({
     },
     methods: {
         selectContact(index) {
-            this.activeContact = index;
+            this.activeFilteredContact = index;
+            const filteredIndex = this.contacts.indexOf(this.filteredContacts[index]);
+            this.activeContact = filteredIndex;
             console.log(this.activeContact);
         },
         filterContacts() {
             console.log(this.searchText);
             const search = this.searchText.toLowerCase();
-    
+
             this.filteredContacts = this.contacts.filter(contact => {
                 return contact.name.toLowerCase().includes(search);
             });
+            console.log(this.filteredContacts);
         }
+    },
+    created() {
+        this.filteredContacts = this.contacts; //ALL'INIZIO MOSTRA TUTTI I CONTATTI
+        this.activeFilteredContact = 0; //imposta l'indice del contatto attivo iniziale
     }
 }).mount('#app')

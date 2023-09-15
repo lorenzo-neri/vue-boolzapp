@@ -108,7 +108,7 @@
 
                 <main>
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-4 bg-white">
 
                             <div id="notifications"
                                 class="d-flex gap-2 align-items-center p-2 ps-3">
@@ -150,50 +150,14 @@
                             </form>
                             <!-- /input_search -->
 
-                            <div class="scroll" v-if="search == ''">
+                            <div class="scroll">
 
                                 <div id="preview_chat"
                                     class="d-flex gap-2 align-items-start justify-content-between p-2 ps-3"
-                                    v-for="(contact, i) in contacts" :key="i"
+                                    v-for="(contact, i) in filteredContacts"
+                                    :key="i"
                                     @click="selectContact(i)"
-                                    :class="i == activeContact ? 'open_chat_bg' : 'close_chat_bg'">
-
-                                    <div
-                                        class="info_chat d-flex justify-content-between gap-2">
-
-                                        <div class="user_pic">
-                                            <img :src="contact.avatar"
-                                                alt="avatar">
-                                        </div>
-                                        <!-- /.user_pic -->
-
-                                        <div>
-                                            <div class="user_name">
-                                                {{contact.name}}
-                                            </div>
-                                            <div class="user_status">
-                                                {{contact.messages[contact.messages.length
-                                                -
-                                                1].message}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="time">
-                                        12:00
-                                    </div>
-                                    <!-- /.info_chat -->
-                                </div>
-                                <!-- /#preview_chat -->
-
-                            </div>
-                            <!-- /.scroll -->
-                            <div class="scroll" v-else>
-
-                                <div id="preview_chat"
-                                    class="d-flex gap-2 align-items-start justify-content-between p-2 ps-3"
-                                    v-for="(contact, i) in filteredContacts" :key="i"
-                                    @click="selectContact(i)"
-                                    :class="i == activeContact ? 'open_chat_bg' : 'close_chat_bg'">
+                                    :class="i == activeFilteredContact ? 'open_chat_bg' : 'close_chat_bg'">
 
                                     <div
                                         class="info_chat d-flex justify-content-between gap-2">
