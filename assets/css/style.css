@@ -99,6 +99,11 @@ header {
     height: 30rem;
 }
 
+#preview_chat{
+    border-top: 1px solid var(--bz-light);
+    border-bottom: 1px solid var(--bz-light);
+}
+
 .time {
     font-size: 12px;
     font-weight: 300;
