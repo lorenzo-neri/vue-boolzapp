@@ -1,3 +1,7 @@
+body{
+    overflow: hidden;
+}
+
 .background {
     width: 100vw;
     height: 100vh;
@@ -14,7 +18,7 @@
 }
 
 .user_status {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 300;
     color: var(--bz-icon);
 }
@@ -80,6 +84,11 @@ header {
     }
 }
 
+.scroll{
+    height: 60vh;
+    overflow-y: scroll;
+}
+
 .time {
     font-size: 12px;
     font-weight: 300;
@@ -89,6 +98,35 @@ header {
 
 #bg_chat {
     background-image: url(../img/mine.jpg);
+}
+
+.message{
+    padding: 1rem .5rem;
+    width: 60%;
+    background-color: white;
+    border-radius: 15px;
+    position: relative;
+
+    & .time_message{
+        position: absolute;
+        right: 10px;
+        bottom: 5px;
+        font-size: 10px;
+    }
+}
+
+.my_message{
+    background-color: var(--bz-success);
+}
+
+
+#message_bar{
+
+    background-color: var(--bz-input-message-bg);
+
+    & input{
+        border-radius: 10px;
+    }
 }
 
 /* #endregion main */
@@ -118,7 +156,7 @@ header {
 
 :root {
     --bz-principal: #DBDBD2;
-    --bz-success: #D5F9BA;
+    --bz-success: #d4f8ba;
     --bz-light: #ebebea;
     --bz-white: #FFFFFF;
     --bz-focus: #8EDAFC;
@@ -128,6 +166,7 @@ header {
     --bz-row: #c9c9c9;
     --bz-notice: #8fdbfc;
     --bz-search-bg: #fbfafb;
+    --bz-input-message-bg: #f2efea;
 }
 
 /* #endregion colors */
