@@ -99,7 +99,7 @@ header {
     height: 30rem;
 }
 
-#preview_chat{
+#preview_chat {
     border-top: 1px solid var(--bz-light);
     border-bottom: 1px solid var(--bz-light);
 }
