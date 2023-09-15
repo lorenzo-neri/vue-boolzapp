@@ -26,6 +26,8 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            searchText: '', //testo inserito nell'input di ricerca
+            filteredContacts: [], //contatti filtrati
             activeContact: 0,
             contacts: [
                 {
@@ -196,6 +198,14 @@ createApp({
         selectContact(index) {
             this.activeContact = index;
             console.log(this.activeContact);
+        },
+        filterContacts() {
+            console.log(this.searchText);
+            const search = this.searchText.toLowerCase();
+    
+            this.filteredContacts = this.contacts.filter(contact => {
+                return contact.name.toLowerCase().includes(search);
+            });
         }
     }
 }).mount('#app')

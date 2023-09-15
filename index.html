@@ -140,16 +140,17 @@
                                         class="fa-solid fa-magnifying-glass fa-md"></i>
                                 </button>
 
-                                <input type="search"
+                                <input id="search" type="text"
                                     class="form-control shadow-none"
                                     placeholder="Cerca o inizia una nuova chat"
                                     aria-label="Search"
-                                    aria-describedby="searchbar">
-
+                                    aria-describedby="searchbar"
+                                    v-model="searchText"
+                                    @input="filterContacts">
                             </form>
                             <!-- /input_search -->
 
-                            <div class="scroll">
+                            <div class="scroll" v-if="search == ''">
 
                                 <div id="preview_chat"
                                     class="d-flex gap-2 align-items-start justify-content-between p-2 ps-3"
@@ -185,34 +186,50 @@
                                 <!-- /#preview_chat -->
 
                             </div>
+                            <!-- /.scroll -->
+                            <div class="scroll" v-else>
+
+                                <div id="preview_chat"
+                                    class="d-flex gap-2 align-items-start justify-content-between p-2 ps-3"
+                                    v-for="(contact, i) in filteredContacts" :key="i"
+                                    @click="selectContact(i)"
+                                    :class="i == activeContact ? 'open_chat_bg' : 'close_chat_bg'">
+
+                                    <div
+                                        class="info_chat d-flex justify-content-between gap-2">
+
+                                        <div class="user_pic">
+                                            <img :src="contact.avatar"
+                                                alt="avatar">
+                                        </div>
+                                        <!-- /.user_pic -->
+
+                                        <div>
+                                            <div class="user_name">
+                                                {{contact.name}}
+                                            </div>
+                                            <div class="user_status">
+                                                {{contact.messages[contact.messages.length
+                                                -
+                                                1].message}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="time">
+                                        12:00
+                                    </div>
+                                    <!-- /.info_chat -->
+                                </div>
+                                <!-- /#preview_chat -->
+
+                            </div>
+                            <!-- /.scroll -->
 
                         </div>
                         <!-- /.col-4 -->
 
                         <div id="bg_chat" class="col-8">
                             <div class="container p-5">
-
-                                <!-- LA CLASSE MY_MESSAGE STA ALL'INTERNO DELLA COL-4 CON CLASSE FLEX-ROW-REVERSE CHE STA ALL'INTERNO DELLA ROW CON CLASSE JUSTIFY-CONTENT-END -->
-
-                                <!-- /.row -->
-                                <!-- <div class="row mb-2 justify-content-end"
-                                    v-for="(message, index) in contacts[activeContact].messages"
-                                    :key="index">
-
-                                    <div class="col-4 d-flex flex-row-reverse">
-
-                                        <div class="message my_message">
-                                            {{ message.message }}
-                                            <div class="time_message">
-                                                12:00
-                                            </div>
-                                        </div>
-
-                                    </div> -->
-                                <!-- /.col-4 -->
-
-                                <!-- </div> -->
-                                <!-- /.row -->
 
                                 <div
                                     v-for="(message, index) in contacts[activeContact].messages">
