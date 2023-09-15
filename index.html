@@ -151,10 +151,10 @@
 
                                 <div id="preview_chat"
                                     class="d-flex gap-2 align-items-start justify-content-between bg-white p-2 ps-3"
-                                    v-for="contact in contacts">
+                                    v-for="(contact, i) in contacts" :key="i" @click="selectContact(i)">
 
                                     <div
-                                        class="info_chat d-flex justify-content-between gap-2">
+                                        class="info_chat d-flex justify-content-between gap-2"  >
 
                                         <div class="user_pic">
                                             <img :src="contact.avatar"
@@ -188,28 +188,15 @@
                         <div id="bg_chat" class="col-8">
                             <div class="container p-5">
 
-                                <div class="row mb-2 justify-content-end">
-
-                                    <div class="col-4 d-flex flex-row-reverse">
-
-                                        <div class="message my_message">
-                                            CIAO!
-                                            <div class="time_message">
-                                                12:00
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <!-- /.col-4 -->
-
-                                </div>
                                 <!-- /.row -->
-                                <div class="row mb-2 justify-content-end">
+                                <div class="row mb-2 justify-content-end"
+                                    v-for="(message, index) in contacts[activeContact].messages"
+                                    :key="index">
 
                                     <div class="col-4 d-flex flex-row-reverse">
 
                                         <div class="message my_message">
-                                            CIAO!
+                                            {{ message.message }}
                                             <div class="time_message">
                                                 12:00
                                             </div>

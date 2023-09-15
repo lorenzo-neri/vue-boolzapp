@@ -100,9 +100,8 @@ header {
     background-image: url(../img/mine.jpg);
 }
 
-.message{
-    padding: 1rem .5rem;
-    width: 60%;
+.message{ 
+    padding: 1rem 3rem 1rem 1rem;
     background-color: white;
     border-radius: 15px;
     position: relative;
