@@ -76,7 +76,9 @@
                                 <div class="d-flex gap-2 align-items-center">
 
                                     <div class="user_pic">
-                                        <img :src="contacts[activeContact].avatar" alt>
+                                        <img
+                                            :src="contacts[activeContact].avatar"
+                                            alt>
                                     </div>
                                     <!-- /.user_pic -->
                                     <div>
@@ -150,11 +152,13 @@
                             <div class="scroll">
 
                                 <div id="preview_chat"
-                                    class="d-flex gap-2 align-items-start justify-content-between bg-white p-2 ps-3"
-                                    v-for="(contact, i) in contacts" :key="i" @click="selectContact(i)">
+                                    class="d-flex gap-2 align-items-start justify-content-between p-2 ps-3"
+                                    v-for="(contact, i) in contacts" :key="i"
+                                    @click="selectContact(i)"
+                                    :class="i == activeContact ? 'open_chat_bg' : 'close_chat_bg'">
 
                                     <div
-                                        class="info_chat d-flex justify-content-between gap-2"  >
+                                        class="info_chat d-flex justify-content-between gap-2">
 
                                         <div class="user_pic">
                                             <img :src="contact.avatar"
@@ -187,6 +191,8 @@
 
                         <div id="bg_chat" class="col-8">
                             <div class="container p-5">
+
+                                <!-- LA CLASSE MY_MESSAGE STA ALL'INTERNO DELLA COL-4 CON CLASSE FLEX-ROW-REVERSE CHE STA ALL'INTERNO DELLA ROW CON CLASSE JUSTIFY-CONTENT-END -->
 
                                 <!-- /.row -->
                                 <div class="row mb-2 justify-content-end"

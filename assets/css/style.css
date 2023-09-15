@@ -1,4 +1,4 @@
-body{
+body {
     overflow: hidden;
 }
 
@@ -64,7 +64,7 @@ header {
     aspect-ratio: 1/1;
     background-color: var(--bz-white);
 
-    & i{
+    & i {
         color: var(--bz-focus);
     }
 }
@@ -84,7 +84,7 @@ header {
     }
 }
 
-.scroll{
+.scroll {
     height: 60vh;
     overflow-y: scroll;
 }
@@ -100,13 +100,13 @@ header {
     background-image: url(../img/mine.jpg);
 }
 
-.message{ 
+.message {
     padding: 1rem 3rem 1rem 1rem;
     background-color: white;
     border-radius: 15px;
     position: relative;
 
-    & .time_message{
+    & .time_message {
         position: absolute;
         right: 10px;
         bottom: 5px;
@@ -114,16 +114,16 @@ header {
     }
 }
 
-.my_message{
+.my_message {
     background-color: var(--bz-success);
 }
 
 
-#message_bar{
+#message_bar {
 
     background-color: var(--bz-input-message-bg);
 
-    & input{
+    & input {
         border-radius: 10px;
     }
 }
@@ -166,6 +166,14 @@ header {
     --bz-notice: #8fdbfc;
     --bz-search-bg: #fbfafb;
     --bz-input-message-bg: #f2efea;
+}
+
+.open_chat_bg {
+    background-color: var(--bz-light);
+}
+
+.close_chat_bg {
+    background-color: var(--bz-white);
 }
 
 /* #endregion colors */
