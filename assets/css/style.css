@@ -96,7 +96,7 @@ header {
 
 .scroll {
     overflow-y: scroll;
-    height: 30rem;
+    height: 32rem;
 }
 
 #preview_chat {
@@ -181,6 +181,7 @@ header {
     --bz-notice: #8fdbfc;
     --bz-search-bg: #fbfafb;
     --bz-input-message-bg: #f2efea;
+    --bz-dark-grey: #65686a;
 }
 
 .open_chat_bg {
@@ -191,12 +192,24 @@ header {
     background-color: var(--bz-white);
 }
 
+.active_notifications{
+    color: var(--bz-dark-grey);
+}
+
 /* #endregion colors */
 
 /* #region font */
 
 body {
     font-family: 'Roboto', sans-serif;
+}
+
+.fs_14{
+    font-size: 14px;
+}
+
+.fs_16{
+    font-size: 16px;
 }
 
 /* #endregion font */
