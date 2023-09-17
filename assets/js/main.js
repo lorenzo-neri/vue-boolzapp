@@ -9,7 +9,7 @@ Milestone 2 ✅
 ● Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
 ● Click sul contatto mostra la conversazione del contatto cliccato
 
-Milestone 3
+Milestone 3 ✅
 ● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
 ● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
 
@@ -21,6 +21,18 @@ Milestone 5 - Bonus opzionale
 ● Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
 */
 
+/* 
+
+TO DO RIMASTE
+
+CORREGGERE BUG BARRA DI RICERCA E FILTRAGGIO
+
+AVVERTENZE IN CONSOLE
+
+MILESTONE 5 
+
+*/
+
 const { createApp } = Vue
 
 createApp({
@@ -30,6 +42,7 @@ createApp({
             filteredContacts: [],
             activeContact: 0,
             activeFilteredContact: 0, //indice del contatto attivo all'interno di filteredContacts
+            userText: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -196,12 +209,19 @@ createApp({
         }
     },
     methods: {
+        //seleziono il contatto
         selectContact(index) {
+
+            //svuoto l'input quando cambio chat
+            this.userText = '';
+
             this.activeFilteredContact = index;
             const filteredIndex = this.contacts.indexOf(this.filteredContacts[index]);
             this.activeContact = filteredIndex;
             console.log(this.activeContact);
         },
+
+        //filtro i contatti
         filterContacts() {
             console.log(this.searchText);
             const search = this.searchText.toLowerCase();
@@ -210,8 +230,48 @@ createApp({
                 return contact.name.toLowerCase().includes(search);
             });
             console.log(this.filteredContacts);
-        }
+        },
+
+        //invio messaggio
+        sendMessage() {
+
+            if (this.userText.trim() === '') {
+                //non invio messaggi vuoti
+                return;
+            }
+
+            const userMessage = {
+                date: new Date().toLocaleString(),
+                message: this.userText,
+                status: 'sent'
+            };
+
+            console.log(this.userText);
+
+            this.contacts[this.activeContact].messages.push(userMessage);
+
+            //svuoto input dopo invio
+            this.userText = '';
+
+            //messaggio di risposta
+            setTimeout(() => {
+                const replyMessage = {
+                    date: new Date().toLocaleString(),
+                    message: 'Ok!',
+                    status: 'received'
+                };
+
+                console.log('messaggio inviato');
+
+                this.contacts[this.activeContact].messages.push(replyMessage);
+
+            }, 1000);
+        },
+
+
     },
+
+    //ad applicazione creata
     created() {
         this.filteredContacts = this.contacts; //ALL'INIZIO MOSTRA TUTTI I CONTATTI
         this.activeFilteredContact = 0; //imposta l'indice del contatto attivo iniziale

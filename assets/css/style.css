@@ -113,6 +113,12 @@ header {
 
 #bg_chat {
     background-image: url(../img/mine.jpg);
+
+    & .container {
+        overflow-y: scroll;
+        height: 40rem;
+        padding: 3.5rem 4.5rem 0rem 4.5rem;
+    }
 }
 
 .message {
@@ -192,7 +198,7 @@ header {
     background-color: var(--bz-white);
 }
 
-.active_notifications{
+.active_notifications {
     color: var(--bz-dark-grey);
 }
 
@@ -204,11 +210,11 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.fs_14{
+.fs_14 {
     font-size: 14px;
 }
 
-.fs_16{
+.fs_16 {
     font-size: 16px;
 }
 
