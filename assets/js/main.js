@@ -39,9 +39,9 @@ createApp({
     data() {
         return {
             searchText: '', //testo inserito nell'input di ricerca
-            filteredContacts: [],
+            //filteredContacts: [],
             activeContact: 0,
-            activeFilteredContact: 0, //indice del contatto attivo all'interno di filteredContacts
+            //activeFilteredContact: 0, //indice del contatto attivo all'interno di filteredContacts
             userText: '',
             contacts: [
                 {
@@ -69,7 +69,7 @@ createApp({
                 {
                     name: 'Fabio',
                     avatar: './assets/img/avatar_2.jpg',
-                    visible: true,
+                    visible: false,
                     messages: [
                         {
                             date: '20/03/2020 16:30:00',
@@ -215,9 +215,9 @@ createApp({
             //svuoto l'input quando cambio chat
             this.userText = '';
 
-            this.activeFilteredContact = index;
-            const filteredIndex = this.contacts.indexOf(this.filteredContacts[index]);
-            this.activeContact = filteredIndex;
+            this.activeContact = index;
+            // const filteredIndex = this.contacts.indexOf(this.filteredContacts[index]);
+            // this.activeContact = filteredIndex;
             console.log(this.activeContact);
         },
 
@@ -226,9 +226,17 @@ createApp({
             console.log(this.searchText);
             const search = this.searchText.toLowerCase();
 
-            this.filteredContacts = this.contacts.filter(contact => {
-                return contact.name.toLowerCase().includes(search);
+            this.contacts.forEach((contact) => {
+
+                //controllo se il nome del contatto include il testo di ricerca
+                const name = contact.name.toLowerCase();
+                
+                contact.visible = name.includes(search);
             });
+
+            /* this.filteredContacts = this.contacts.filter(contact => {
+                return contact.name.toLowerCase().includes(search);
+            }); */
 
             //console.log(this.filteredContacts);
         },

@@ -155,44 +155,47 @@
 
                             <div class="scroll">
 
-                                <div id="preview_chat"
-                                    class="d-flex gap-2 align-items-start justify-content-between p-2 ps-3"
-                                    v-for="(contact, i) in filteredContacts"
-                                    :key="i"
-                                    @click="selectContact(i)"
-                                    :class="i == activeFilteredContact ? 'open_chat_bg' : 'close_chat_bg'">
+                                <template v-for="(contact, i) in contacts" :key="i">
 
-                                    <div
-                                        class="info_chat d-flex justify-content-between gap-2">
+                                    <div id="preview_chat"
+                                        class="d-flex gap-2 align-items-start justify-content-between p-2 ps-3"
+                                        @click="selectContact(i)"
+                                        :class="i == activeContact ? 'open_chat_bg' : 'close_chat_bg'"
+                                        v-if="contact.visible">
 
-                                        <div class="user_pic">
-                                            <img :src="contact.avatar"
-                                                alt="avatar">
-                                        </div>
-                                        <!-- /.user_pic -->
+                                        <div
+                                            class="info_chat d-flex justify-content-between gap-2">
 
-                                        <div>
-                                            <div class="user_name">
-                                                {{contact.name}}
+                                            <div class="user_pic">
+                                                <img :src="contact.avatar"
+                                                    alt="avatar">
                                             </div>
-                                            <div class="user_status">
-                                                {{contact.messages[contact.messages.length
-                                                -
-                                                1].message}}
+                                            <!-- /.user_pic -->
+
+                                            <div>
+                                                <div class="user_name">
+                                                    {{contact.name}}
+                                                </div>
+                                                <div class="user_status">
+                                                    {{contact.messages[contact.messages.length
+                                                    -
+                                                    1].message}}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="time">
+                                        <div class="time">
 
-                                        <!-- ############# TO DO ############# -->
-                                        {{contact.messages[contact.messages.length
-                                        -
-                                        1].date}}
+                                            <!-- ############# TO DO ############# -->
+                                            {{contact.messages[contact.messages.length
+                                            -
+                                            1].date}}
 
+                                        </div>
+                                        <!-- /.info_chat -->
                                     </div>
-                                    <!-- /.info_chat -->
-                                </div>
-                                <!-- /#preview_chat -->
+                                    <!-- /#preview_chat -->
+
+                                </template>
 
                             </div>
                             <!-- /.scroll -->
