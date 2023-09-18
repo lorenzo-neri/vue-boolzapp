@@ -275,13 +275,12 @@ createApp({
 
             }, 1000);
         },
-        
+
     },
 
     //ad applicazione creata
     created() {
         this.filteredContacts = this.contacts; //ALL'INIZIO MOSTRA TUTTI I CONTATTI
         this.activeFilteredContact = 0; //imposta l'indice del contatto attivo iniziale
-        
     }
 }).mount('#app')
