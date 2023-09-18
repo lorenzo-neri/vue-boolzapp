@@ -229,7 +229,8 @@ createApp({
             this.filteredContacts = this.contacts.filter(contact => {
                 return contact.name.toLowerCase().includes(search);
             });
-            console.log(this.filteredContacts);
+
+            //console.log(this.filteredContacts);
         },
 
         //invio messaggio
@@ -240,8 +241,15 @@ createApp({
                 return;
             }
 
+            //recupero ore e minuti
+            const now = new Date();
+            //formatto ore e minuti con due cifre
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const formattedTime = `${hours}:${minutes}`;
+
             const userMessage = {
-                date: new Date().toLocaleString(),
+                date: formattedTime,
                 message: this.userText,
                 status: 'sent'
             };
@@ -256,7 +264,7 @@ createApp({
             //messaggio di risposta
             setTimeout(() => {
                 const replyMessage = {
-                    date: new Date().toLocaleString(),
+                    date: formattedTime,
                     message: 'Ok!',
                     status: 'received'
                 };
@@ -267,13 +275,13 @@ createApp({
 
             }, 1000);
         },
-
-
+        
     },
 
     //ad applicazione creata
     created() {
         this.filteredContacts = this.contacts; //ALL'INIZIO MOSTRA TUTTI I CONTATTI
         this.activeFilteredContact = 0; //imposta l'indice del contatto attivo iniziale
+        
     }
 }).mount('#app')
