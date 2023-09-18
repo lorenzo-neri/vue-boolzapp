@@ -280,9 +280,9 @@ createApp({
             }, 1000);
         },
 
-        formatDate(dateString) {
+        formatTime(dateTime) {
             const options = { hour: '2-digit', minute: '2-digit' };
-            return new Date(dateString).toLocaleTimeString([], options);
+            return new Date(dateTime).toLocaleTimeString([], options);
         },
 
     },

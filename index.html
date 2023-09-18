@@ -187,7 +187,7 @@
                                         <div class="time">
 
                                             <!-- ############# TO DO ############# -->
-                                            {{formatDate(contact.messages[contact.messages.length
+                                            {{formatTime(contact.messages[contact.messages.length
                                             - 1].date)}}
 
                                         </div>
@@ -215,10 +215,10 @@
 
                                         <div class="col-4">
                                             <div class="message my_message">
-                                                {{message.message}}
+                                                {{ message.message }}
                                                 <div class="time_message">
-                                                    {{formatDate(message.date)}}
-                                                    <!-- {{message.date}} -->
+                                                    {{ message.date }}
+                                                    <!-- {{ message.date }} -->
                                                 </div>
                                             </div>
                                         </div>
@@ -230,7 +230,7 @@
                                             <div class="message">
                                                 {{message.message}}
                                                 <div class="time_message">
-                                                    {{formatDate(message.date)}}
+                                                    {{message.date}}
                                                 </div>
                                             </div>
                                         </div>
