@@ -88,7 +88,7 @@
                                             {{contacts[activeContact].name}}
                                         </div>
                                         <div class="user_status">
-                                            Ultimo accesso oggi alle ####
+                                            Ultimo accesso oggi alle 12:00
                                             <!-- ######### TO DO ######### -->
                                         </div>
                                     </div>
@@ -155,7 +155,8 @@
 
                             <div class="scroll">
 
-                                <template v-for="(contact, i) in contacts" :key="i">
+                                <template v-for="(contact, i) in contacts"
+                                    :key="i">
 
                                     <div id="preview_chat"
                                         class="d-flex gap-2 align-items-start justify-content-between p-2 ps-3"
@@ -186,9 +187,8 @@
                                         <div class="time">
 
                                             <!-- ############# TO DO ############# -->
-                                            {{contact.messages[contact.messages.length
-                                            -
-                                            1].date}}
+                                            {{formatDate(contact.messages[contact.messages.length
+                                            - 1].date)}}
 
                                         </div>
                                         <!-- /.info_chat -->
@@ -215,10 +215,10 @@
 
                                         <div class="col-4">
                                             <div class="message my_message">
-                                                {{ message.message }}
+                                                {{message.message}}
                                                 <div class="time_message">
-                                                    {{ message.date }}
-                                                    <!-- {{ message.date }} -->
+                                                    {{formatDate(message.date)}}
+                                                    <!-- {{message.date}} -->
                                                 </div>
                                             </div>
                                         </div>
@@ -228,9 +228,9 @@
                                     <div class="row mb-2" v-else>
                                         <div class="col-4">
                                             <div class="message">
-                                                {{ message.message }}
+                                                {{message.message}}
                                                 <div class="time_message">
-                                                    {{ message.date }}
+                                                    {{formatDate(message.date)}}
                                                 </div>
                                             </div>
                                         </div>

@@ -25,10 +25,6 @@ Milestone 5 - Bonus opzionale
 
 TO DO RIMASTE
 
-CORREGGERE BUG BARRA DI RICERCA E FILTRAGGIO
-
-AVVERTENZE IN CONSOLE
-
 MILESTONE 5 
 
 */
@@ -69,20 +65,20 @@ createApp({
                 {
                     name: 'Fabio',
                     avatar: './assets/img/avatar_2.jpg',
-                    visible: false,
+                    visible: true,
                     messages: [
-                        {
-                            date: '20/03/2020 16:30:00',
+                        {//20/03/2020 16:30:00
+                            date: '03/20/2020 16:30:00',
                             message: 'Ciao come stai?',
                             status: 'sent'
                         },
                         {
-                            date: '20/03/2020 16:30:55',
+                            date: '03/20/2020 16:30:55',
                             message: 'Bene grazie! Stasera ci vediamo?',
                             status: 'received'
                         },
                         {
-                            date: '20/03/2020 16:35:00',
+                            date: '03/20/2020 16:35:00',
                             message: 'Mi piacerebbe ma devo andare a fare la spesa.',
                             status: 'sent'
                         }
@@ -94,17 +90,17 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '28/03/2020 10:10:40',
+                            date: '03/28/2020 10:10:40',
                             message: 'La Marianna va in campagna',
                             status: 'received'
                         },
                         {
-                            date: '28/03/2020 10:20:10',
+                            date: '03/28/2020 10:20:10',
                             message: 'Sicuro di non aver sbagliato chat?',
                             status: 'sent'
                         },
                         {
-                            date: '28/03/2020 16:15:22',
+                            date: '03/28/2020 16:15:22',
                             message: 'Ah scusa!',
                             status: 'received'
                         }
@@ -230,7 +226,7 @@ createApp({
 
                 //controllo se il nome del contatto include il testo di ricerca
                 const name = contact.name.toLowerCase();
-                
+
                 contact.visible = name.includes(search);
             });
 
@@ -282,6 +278,11 @@ createApp({
                 this.contacts[this.activeContact].messages.push(replyMessage);
 
             }, 1000);
+        },
+
+        formatDate(dateString) {
+            const options = { hour: '2-digit', minute: '2-digit' };
+            return new Date(dateString).toLocaleTimeString([], options);
         },
 
     },
