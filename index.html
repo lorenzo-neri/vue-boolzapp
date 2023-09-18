@@ -207,28 +207,27 @@
                                     v-for="(message, index) in contacts[activeContact].messages">
 
                                     <div class="row mb-2 justify-content-end"
-                                        :key="index"
-                                        v-if="message.status === 'sent'">
+                                        v-if="message.status === 'sent'"
+                                        :key="index">
 
                                         <div class="col-4">
                                             <div class="message my_message">
                                                 {{ message.message }}
                                                 <div class="time_message">
-                                                    {{ message.date }}<!-- {{ message.date }} -->
+                                                    {{ message.date }}
+                                                    <!-- {{ message.date }} -->
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- /.row -->
 
-                                    <div class="row mb-2"
-                                        v-else>
-
-                                        <div class="col-4" v-else>
+                                    <div class="row mb-2" v-else>
+                                        <div class="col-4">
                                             <div class="message">
                                                 {{ message.message }}
                                                 <div class="time_message">
-                                                    {{ message.date }}<!-- {{ message.date }} -->
+                                                    {{ message.date }}
                                                 </div>
                                             </div>
                                         </div>
